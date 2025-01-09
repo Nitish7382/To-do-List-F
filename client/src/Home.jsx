@@ -1,6 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import Create from './Create'
 import axios from 'axios'
+import { IoIosRadioButtonOff } from 'react-icons/io'
+import { MdDelete } from 'react-icons/md'
+
 
 function Home() {
 
@@ -11,17 +14,23 @@ function Home() {
 }, [])
 
   return (
-    <div>
-        To Do List
+    <div className='items-center justify-center flex h-screen bg-slate-600 '>
+    <div className=' flex flex-col h-[350px] w-[350px] border-2 border-black rounded-2xl overflow-hidden bg-white'> 
+        <h2 className='text-center font-bold text-3xl mt-5'>Todo App</h2>
         <Create/>
         {
             todos.length === 0 ? <div>No todos</div> :
             todos.map((todo) => (
-                <div>
-                    {todo.task}
+                <div className='flex justify-center mt-2'>
+                <div className=' flex items-center border-2 border-black h-9 w-72 rounded-full pl-2 mt-2'>
+                <IoIosRadioButtonOff className='h-5 w-5'/>
+                <span className="flex-1 ml-2">{todo.task}</span> 
+                <MdDelete className='cursor-pointer h-5 w-5 text-red-500 mr-2' />
+                </div>
                 </div>
             ))
         }
+    </div>
     </div>
   )
 }
