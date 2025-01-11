@@ -30,14 +30,15 @@ function Home() {
 
   return (
     <div className="items-center justify-center flex h-screen bg-slate-600 ">
-      <div className=" flex flex-col h-[350px] w-[350px] border-2 border-black rounded-2xl overflow-hidden bg-white">
+      <div className=" flex flex-col h-[350px] w-[350px] border-2 border-black rounded-2xl bg-white">
         <h2 className="text-center font-bold text-3xl mt-5">Todo App</h2>
         <Create />
+        <div className="overflow-y-auto max-h-[200px] scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200">
         {todos.length === 0 ? (
-          <div className="self-center mt-20 text-xl text-gray-600 font-semibold" >No todos</div>
+          <div className="self-center mt-20 text-xl text-gray-600 font-semibold ml-32" >No todos</div>
         ) : (
           todos.map((todo) => (
-            <div className="flex justify-center mt-2">
+            <div className="flex justify-center mt-2 ">
               <div className=" flex items-center border-2 border-green-500 h-9 w-72 rounded-full pl-2 mt-2 ">
                 {todo.done ? (
                   <IoIosRadioButtonOn className="h-5 w-5 text-green-700" />
@@ -63,6 +64,7 @@ function Home() {
             </div>
           ))
         )}
+        </div>
       </div>
     </div>
   );
